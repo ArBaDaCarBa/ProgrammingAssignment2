@@ -19,4 +19,8 @@ test.makeCacheMatrix <- function() {
     checkEquals(inv, inv_m)
     checkTrue(!is.null(m$getinverted()))
     checkEquals(m$getinverted(), inv_m)
+
+    # Call to set should empties the cache
+    m$set(ori_m)
+    checkTrue(is.null(m$getinverted()))
 }
