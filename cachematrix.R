@@ -15,7 +15,33 @@
 ##
 ## !!! Does not check is the matrix is inversible !!!
 makeCacheMatrix <- function(x = matrix()) {
+    # By default, the inverted matrix cache is NULL (not computed)
+    cached.inverted <- NULL
 
+    # Sets the original matrix, and empty cache
+    set <- function(y) {
+        x <<- y
+        cached.inverted <<- NULL
+    }
+
+    # Gets the matrix
+    get <- function() {
+        x
+    }
+
+    # Sets the inverted cache
+    setinverted <- function(inverted) {
+        cached.inverted <<- inverted
+    }
+
+    # Gets the cached inverted matrix
+    getinverted <- function() {
+        cached.inverted
+    }
+
+    # Returns the vector listing the utility functions
+    list(set=set, get=get,
+         setinverted=setinverted, getinverted=getinverted)
 }
 
 
