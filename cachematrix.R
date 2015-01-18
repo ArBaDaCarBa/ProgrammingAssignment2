@@ -1,7 +1,7 @@
 ## Set of functions to create special matrix object, able to cache its
 ## inverted value and avoid costly computation
 
-## creates a special matrix that can cache it's inverted matrix
+## Creates a special matrix that can cache its inverted matrix
 ##
 ## The function will return four function to manipulate the matrix and it's
 ## inverted matrix:
