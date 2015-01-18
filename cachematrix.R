@@ -53,5 +53,21 @@ makeCacheMatrix <- function(x = matrix()) {
 ## it.
 ## !!! Does not check is the matrix is inversible !!!
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+    ## Return a matrix that is the inverse of 'x', using a cache as possible
+
+    # Let's first look of the special matrix has a non NULL cache
+    inverted <- x$getinverted()
+
+    if (!is.null(inverted)) {
+        # Returns the cached inverted matrix
+        return(inverted)
+    }
+
+    # And if the special matrix has no cache... then compute it, and cache it
+    m <- x$get()
+    inverted <- solve(m, ...)
+    x$setinverted(inverted)
+
+    # And returns the inverted matrix
+    inverted
 }
